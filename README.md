@@ -49,3 +49,74 @@ openjdk 21.0.2 2024-01-16
 OpenJDK Runtime Environment (build 21.0.2+13-58)
 OpenJDK 64-Bit Server VM (build 21.0.2+13-58, mixed mode, sharing)
 ```
+
+## Instalación y configuracion de Java en SO Linux
+
+Para instalar OpenJDK en Windows  se realizara lo siguiente:
+
+1. Descargar los binarios de la pagina de OpenJDK
+   - Binario: https://jdk.java.net/21/
+2. Descomprimir el binario en la carpeta de destino. Generalmente es en `/opt/java`
+   - Crea la carpeta `java` dentro de `opt`
+   - Descomprime el binario
+```sh
+sudo mkdir -p /opt/java
+sudo tar xvf open open openjdk-21.*_bin.tar.gz -C /opt/java
+```
+3. Crea las variables de entorno
+   - JAVA_HOME: Esta variable la utiliza java para saber dónde se encuentran sus binarios
+
+```sh
+export JAVA_HOME=/ruta/destino/versionjava
+// en nuestro ejemplo, la ruta seria:
+// /opt/java/jdk-21.0.2
+// Nota: debes de tener cuidado de NO colocar el slash / al final.
+```
+Entonces bajo esto deberiamos de tener algo similar a lo siguiente:
+
+```sh
+sudo nano ~/.bashrc
+export JAVA_HOME=/opt/java/jdk-21.0.2
+export PATH=$PATH:$JAVA_HOME/bin
+// Ctl + x
+source ~/.bashrc
+
+# O
+
+export JAVA_HOME=~/.jdks/openjdk-18.0.1.1/
+export PATH=$PATH:$JAVA_HOME/bin
+```
+
+## Convenciones de Java
+
+- El archivo debe iniciar con mayuscula por ejemplo `Hola.java`
+- Debe iniciar con `class`
+- La clase debe ser el nombre del archivo `class Hola {}`
+- Se compila como `javac Hola.java`  // crea un archivo Hola.class
+- Se ejecuta ahora como `java Hola` // sin extensión
+- Operadores aritmeticos
+
+```
+. + - * / ()
+
+Jerarquia
+Operador . (POO), operador ()
+Primero * / (Prioridad de izq a der)
+Segundo + - (Prioridad de izq a der)
+```
+- Operadores logicos
+
+```java
+int edad = 15;
+boolean ninez = edad <= 11 && edad >= 0;
+System.out.println(ninez); // false
+```
+- Condicionales
+  
+```java
+if(){}
+else if (){}
+else if (){}
+else if...N(){}
+else {}
+```
